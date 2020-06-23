@@ -1,0 +1,49 @@
+<IfModule mod_rewrite.c>
+Options +Indexes +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^iletisim.* iletisim.php [NC]
+RewriteRule ^kat-(.*)_([0-9]+) kat.php?p=$2 [L,NC] 
+RewriteRule ^refgaleri-(.*)_([0-9]+) refgaleri.php?p=$2 [L,NC] 
+RewriteRule ^sepetim. sepet.php [NC]
+RewriteRule ^etiket-(.*) etiket.php?s=$1 [L,NC] 
+RewriteRule ^arama.* arama.php [NC]
+RewriteRule ^onay* onay.php [NC]
+RewriteRule ^urun-(.*)_([0-9]+) urun.php?p=$2 [L,NC] 
+RewriteRule ^kanal-(.*)_([0-9]+) kanal.php?p=$2 [L,NC] 
+RewriteRule ^sayfa-(.*)_([0-9]+) sayfa.php?p=$2 [L,NC] 
+RewriteRule ^kurumsal.html sayfa.php?p=1 [NC] 
+RewriteRule ^galeri.html galeri.php [NC]
+RewriteRule ^index.html index.php [NC]
+RewriteRule ^referanslar.html refler.php [NC]
+
+
+RewriteRule ^uyari.html.* uyari.php [NC]
+RewriteRule ^profil/(.*)$ profil.php$1 [NC]
+RewriteRule ^haberler/(.*)$ haberler.php$1 [NC]
+RewriteRule ^urunler/(.*)$ urunler.php$1 [NC]
+RewriteRule ^hizmetler/(.*)$ hizmetler.php$1 [NC]
+RewriteRule ^referanslar/(.*)$ referanslar.php$1 [NC]
+RewriteRule ^galeri/(.*)$ galeri.php$1 [NC]
+RewriteRule ^yoneticiler/(.*)$ yoneticiler.php$1 [NC]
+RewriteRule ^insan-kaynaklari/(.*)$ insan-kaynaklari.php$1 [NC]
+RewriteRule ^yeniuyelik/(.*)$ uyeol.php$1 [NC]
+RewriteRule ^kategoriler.html.* kategoriler.php [NC]
+RewriteRule ^haber/(.*)/(.*).html haberdetay.php?Id=$1 [NC,L]
+RewriteRule ^urun/(.*)/(.*).html urun.php?Id=$1 [NC,QSA,L] 
+RewriteRule ^etiket/(.*)/(.*).html urun.php?Id=$1 [NC,QSA,L] 
+RewriteRule ^sayfa/(.*)/(.*).html sayfa.php?Id=$1 [NC,L]
+RewriteRule ^kategori/(.*)/(.*)_([0-9]+).html kategori.php?Id=$1&sayfa=$3 [L,NC] 
+RewriteRule ^haber-kategori/(.*)/(.*).html h-kategori.php?Id=$1 [L] 
+RewriteRule ^kategori/(.*)/(.*).html kategori.php?Id=$1 [L] 
+RewriteRule ^g-kategori-(.*)-(.*)_([0-9]+).html g-kategori.php?Id=$2&sayfa=$3 [L,NC] 
+RewriteRule ^galeri-kategori/(.*)/(.*).html g-kategori.php?Id=$1 [L] 
+RewriteRule ^haberler_([0-9]+).html$ ./haberler.php?sayfa=$1 [L]
+RewriteRule ^urunler_([0-9]+).html$ ./urunler.php?sayfa=$1 [L]
+RewriteRule ^hizmetler_([0-9]+).html$ ./hizmetler.php?sayfa=$1 [L]
+RewriteRule ^referanslar_([0-9]+).html$ ./referanslar.php?sayfa=$1 [L]
+RewriteRule ^galeri_([0-9]+).html$ ./galeri.php?sayfa=$1 [L]
+ErrorDocument 404 /404.html
+RewriteRule ^404.html.* 404.php [NC]
+RewriteRule ^sitemap.xml$ sitemap.php
+</IfModule>
